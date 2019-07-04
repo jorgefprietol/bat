@@ -65,8 +65,11 @@
 		  },
         success: function(datos){
 		$("#resultados").html(datos);
-		}
-			});
+		},
+		error: function(data, errorThrown)
+          {
+              alert('request failed :'+errorThrown);
+          });
 		}
 
 		function agregarpromo(id)
