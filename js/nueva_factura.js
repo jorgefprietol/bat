@@ -36,22 +36,22 @@
 			})
 		}
 
-	function agregar(idd)
+	function agregar(id)
 		{
 			alert('paso agregar');
-			var precio_ventad=document.getElementById('precio_venta_'+idd).value;
-			var cantidadd=document.getElementById('cantidad_'+idd).value;
+			var precio_venta=document.getElementById('precio_venta_'+id).value;
+			var cantidad=document.getElementById('cantidad_'+id).value;
 			//Inicia validacion
-			if (isNaN(cantidadd))
+			if (isNaN(cantidad))
 			{
 			alert('Esto no es un numero');
-			document.getElementById('cantidad_'+idd).focus();
+			document.getElementById('cantidad_'+id).focus();
 			return false;
 			}
-			if (isNaN(precio_ventad))
+			if (isNaN(precio_venta))
 			{
 			alert('Esto no es un numero');
-			document.getElementById('precio_venta_'+idd).focus();
+			document.getElementById('precio_venta_'+id).focus();
 			return false;
 			}
 			//Fin validacion
@@ -59,22 +59,14 @@
 			$.ajax({
         type: "POST",
         url: "./ajax/agregar_pedido.php",
-
-		error: function( jqXHR, textStatus, errorThrown ) {
-			// Otro manejador error
-			alert('error function');
-		}
-        datad: "id="+idd+"&precio_venta="+precio_ventad+"&cantidad="+cantidadd,
+        data: "id="+id+"&precio_venta="+precio_venta+"&cantidad="+cantidad,
 		 beforeSend: function(objeto){
 			$("#resultados").html("Mensaje: Cargando...");
 		  },
-        success: function(datosd){
-		$("#resultados").html(datosd);
+        success: function(datos){
+		$("#resultados").html(datos);
 		}
-		.fail( function( jqXHR, textStatus, errorThrown ) {
-		// Un callback .fail()
-		alert('error callback jfpl');
-		});
+			});
 		}
 
 		function agregarpromo(id)
