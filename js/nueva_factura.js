@@ -59,6 +59,11 @@
 			$.ajax({
         type: "POST",
         url: "./ajax/agregar_pedido.php",
+
+		error: function( jqXHR, textStatus, errorThrown ) {
+			// Otro manejador error
+			alert('error function');
+		}
         data: "id="+id+"&precio_venta="+precio_venta+"&cantidad="+cantidad,
 		 beforeSend: function(objeto){
 			$("#resultados").html("Mensaje: Cargando...");
@@ -66,7 +71,10 @@
         success: function(datos){
 		$("#resultados").html(datos);
 		}
-			});
+		.fail( function( jqXHR, textStatus, errorThrown ) {
+		// Un callback .fail()
+		alert('error callback jfpl');
+		});
 		}
 
 		function agregarpromo(id)
