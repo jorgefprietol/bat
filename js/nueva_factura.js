@@ -36,22 +36,22 @@
 			})
 		}
 
-	function agregar(id)
+	function agregar(idd)
 		{
 			alert('paso agregar');
-			var precio_venta=document.getElementById('precio_venta_'+id).value;
-			var cantidad=document.getElementById('cantidad_'+id).value;
+			var precio_ventad=document.getElementById('precio_venta_'+idd).value;
+			var cantidadd=document.getElementById('cantidad_'+idd).value;
 			//Inicia validacion
-			if (isNaN(cantidad))
+			if (isNaN(cantidadd))
 			{
 			alert('Esto no es un numero');
-			document.getElementById('cantidad_'+id).focus();
+			document.getElementById('cantidad_'+idd).focus();
 			return false;
 			}
-			if (isNaN(precio_venta))
+			if (isNaN(precio_ventad))
 			{
 			alert('Esto no es un numero');
-			document.getElementById('precio_venta_'+id).focus();
+			document.getElementById('precio_venta_'+idd).focus();
 			return false;
 			}
 			//Fin validacion
@@ -64,12 +64,12 @@
 			// Otro manejador error
 			alert('error function');
 		}
-        data: "id="+id+"&precio_venta="+precio_venta+"&cantidad="+cantidad,
+        datad: "id="+idd+"&precio_venta="+precio_ventad+"&cantidad="+cantidadd,
 		 beforeSend: function(objeto){
 			$("#resultados").html("Mensaje: Cargando...");
 		  },
-        success: function(datos){
-		$("#resultados").html(datos);
+        success: function(datosd){
+		$("#resultados").html(datosd);
 		}
 		.fail( function( jqXHR, textStatus, errorThrown ) {
 		// Un callback .fail()
